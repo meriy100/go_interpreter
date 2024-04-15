@@ -6,8 +6,8 @@ const (
 	ILLEGAL TokenType = "ILLEGAL"
 	EOF     TokenType = "EOF"
 
-	INDENT TokenType = "INDENT"
-	INT    TokenType = "INT"
+	IDENT TokenType = "IDENT"
+	INT   TokenType = "INT"
 
 	ASSIGN TokenType = "="
 	PLUS   TokenType = "+"
@@ -27,4 +27,16 @@ const (
 type Token struct {
 	Type    TokenType
 	Literal string
+}
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+	return IDENT
 }
