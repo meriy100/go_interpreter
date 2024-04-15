@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "bump(gomod):"
+    reviewers:
+      - "meriy100"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "bump(github-actions):"
+    reviewers:
+      - "meriy100"
+
